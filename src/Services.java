@@ -8,8 +8,7 @@ public class Services
     static int customerId = 1;
     static int stockId =1;
     static  int transactionId = 1;
-    List<Branch> branchList ;
-    List<Customer> customerList;
+
     Services(){
         branchList = new ArrayList<>();
         customerList = new ArrayList<>();
@@ -448,7 +447,7 @@ public class Services
             if(stock==null){
                 int id = searchMedicineByMedicineName(product);
                 if(id!=-1)
-                    System.out.println("Medicine not available in this branch. Available in Branch "+id+" \n");
+                    System.out.println("Medicine not available in this features.branch. Available in Branch "+id+" \n");
                 else {
                     System.out.println("not Medicine not available Any Branch.\n");
                 }
@@ -472,7 +471,7 @@ public class Services
                     } else {
                         int id = searchMedicineByMedicineName(product);
                         if (id != -1)
-                            System.out.println("Medicine not available in this branch. Available in Branch " + id+" \n");
+                            System.out.println("Medicine not available in this features.branch. Available in Branch " + id+" \n");
                         else {
                             System.out.println("not Medicine not available Any Branch.\n");
                         }
