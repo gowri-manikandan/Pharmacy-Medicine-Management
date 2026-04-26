@@ -1,4 +1,4 @@
-package db.dto;
+package model;
 
 import java.util.List;
 

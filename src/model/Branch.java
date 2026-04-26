@@ -1,11 +1,11 @@
-package db.dto;
+package model;
 
 public class Branch
 {
     private final int branchId;
     private final String locationName;
-    private long branchPhoneNumber;
-    public Branch(int branchId,String branchName,long branchPhoneNumber)
+    private String branchPhoneNumber;
+    public Branch(int branchId,String branchName,String branchPhoneNumber)
     {
         this.branchId = branchId;
         locationName = branchName;
@@ -22,12 +22,12 @@ public class Branch
         return locationName;
     }
 
-    public long getBranchPhoneNumber()
+    public String getBranchPhoneNumber()
     {
         return branchPhoneNumber;
     }
 
-    public void setBranchPhoneNumber(long branchPhoneNumber)
+    public void setBranchPhoneNumber(String branchPhoneNumber)
     {
         this.branchPhoneNumber = branchPhoneNumber;
     }
