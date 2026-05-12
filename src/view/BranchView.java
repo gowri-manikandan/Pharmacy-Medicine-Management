@@ -16,25 +16,27 @@ public class BranchView
 
     public String getBranchLocation()
     {
-        System.out.print("Enter the Branch Location :");
-        String branchLocation = scanner.next();
-        if(branchLocation.length()<3 || branchLocation.length()>50)
-        {
-            System.out.println("Invalid data.");
-            getBranchLocation();
+        while (true) {
+            System.out.print("Enter the Branch Location :");
+            String branchLocation = scanner.nextLine().trim();
+            if (branchLocation.length() < 3 || branchLocation.length() > 50) {
+                System.out.println("Invalid data. Name should be 3 to 50 characters.");
+                continue;
+            }
+            return branchLocation;
         }
-        return branchLocation;
     }
     public String getBranchPhoneNumber()
     {
-        System.out.print("Enter the Branch Phone Number :");
-        String branchPhoneNumber = scanner.next();
-        if(branchPhoneNumber.length()!=10)
-        {
-            System.out.println("Invalid data.");
-            getBranchPhoneNumber();
+        while (true) {
+            System.out.print("Enter the Branch Phone Number :");
+            String branchPhoneNumber = scanner.nextLine().trim();
+            if (branchPhoneNumber.length() != 10 || !branchPhoneNumber.matches("\\d{10}")) {
+                System.out.println("Invalid data. Phone should be 10 digits.");
+                continue;
+            }
+            return branchPhoneNumber;
         }
-        return branchPhoneNumber;
     }
 
     public void disPlayAllBranch(List<Branch> branchList)

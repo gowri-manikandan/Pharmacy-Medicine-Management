@@ -7,9 +7,9 @@ public class Customer
 {
     private final int customerId;
     private String customerName;
-    private long customerPhoneNumber;
+    private String customerPhoneNumber;
     private final List<Transaction> transactionList;
-    public Customer(int customerId, String customerName, long customerPhoneNumber)
+    public Customer(int customerId, String customerName, String customerPhoneNumber)
     {
         this.customerId = customerId;
         this.customerName = customerName;
@@ -32,12 +32,12 @@ public class Customer
         this.customerName = customerName;
     }
 
-    public long getCustomerPhoneNumber()
+    public String getCustomerPhoneNumber()
     {
         return customerPhoneNumber;
     }
 
-    public void setCustomerPhoneNumber(long customerPhoneNumber)
+    public void setCustomerPhoneNumber(String customerPhoneNumber)
     {
         this.customerPhoneNumber = customerPhoneNumber;
     }
