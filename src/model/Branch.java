@@ -2,13 +2,13 @@ package model;
 
 public class Branch
 {
-    private final int branchId;
-    private final String locationName;
+    private  int branchId;
+    private String locationName;
     private String branchPhoneNumber;
     public Branch(int branchId,String branchName,String branchPhoneNumber)
     {
         this.branchId = branchId;
-        locationName = branchName;
+        this.locationName = branchName;
         this.branchPhoneNumber = branchPhoneNumber;
     }
 
@@ -17,7 +17,7 @@ public class Branch
         return branchId;
     }
 
-    public String getLocationName()
+    public String getLOCATION_NAME()
     {
         return locationName;
     }
@@ -26,11 +26,5 @@ public class Branch
     {
         return branchPhoneNumber;
     }
-
-    public void setBranchPhoneNumber(String branchPhoneNumber)
-    {
-        this.branchPhoneNumber = branchPhoneNumber;
-    }
-
 
 }

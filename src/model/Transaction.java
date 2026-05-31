@@ -1,14 +1,12 @@
 package model;
 
-import java.util.List;
-
 public class Transaction
 {
-    private final int transactionId;
-    private final int branchId;
-    private final String medicineName;
-    private final int quantity;
-    private final double prince;
+    private int transactionId;
+    private int branchId;
+    private String medicineName;
+    private int quantity;
+    private double prince;
     public Transaction(int transactionId,int branchId,String medicineName,int quantity,double prince )
     {
         this.transactionId = transactionId;

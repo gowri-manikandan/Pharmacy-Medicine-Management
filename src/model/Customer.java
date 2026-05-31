@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Customer
 {
-    private final int customerId;
+    private int customerId;
     private String customerName;
     private String customerPhoneNumber;
-    private final List<Transaction> transactionList;
+    private List<Transaction> transactionList;
     public Customer(int customerId, String customerName, String customerPhoneNumber)
     {
         this.customerId = customerId;
@@ -16,34 +16,17 @@ public class Customer
         this.customerPhoneNumber = customerPhoneNumber;
         transactionList = new ArrayList<>();
     }
-
     public int getCustomerId()
     {
         return customerId;
     }
-
     public String getCustomerName()
     {
         return customerName;
     }
-
-    public void setCustomerName(String customerName)
-    {
-        this.customerName = customerName;
-    }
-
     public String getCustomerPhoneNumber()
     {
         return customerPhoneNumber;
-    }
-
-    public void setCustomerPhoneNumber(String customerPhoneNumber)
-    {
-        this.customerPhoneNumber = customerPhoneNumber;
-    }
-    public void addNewTransaction(Transaction transaction)
-    {
-        transactionList.add(transaction);
     }
     public List<Transaction> getTransactionList()
     {
