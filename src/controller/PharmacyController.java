@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Controller
+public class PharmacyController
 {
     GetAndSearchServices getServices;
     PutServices putServices;
-    public Controller()
+    public PharmacyController()
     {
         getServices = new GetAndSearchServices();
         putServices = new PutServices();

@@ -1,22 +1,23 @@
 package view;
 
-import controller.Controller;
+import controller.PharmacyController;
 import model.Branch;
 import model.Customer;
 import model.MedicineStock;
 import model.Transaction;
-import util.Util;
+import util.ValidateUtil;
 
 import java.util.*;
 
-public class FromView extends View {
+public class FromView extends BaseView
+{
     Scanner scanner;
-    Controller controller;
+    PharmacyController controller;
     DisplayView displayView;
 
     FromView() {
-        controller = new Controller();
-        scanner = View.getSCANNER();
+        controller = new PharmacyController();
+        scanner = BaseView.getSCANNER();
         displayView = new DisplayView();
     }
 
@@ -25,7 +26,7 @@ public class FromView extends View {
         String branchLocation = getString("Enter the Branch Name :");
         String branchPhoneNumber = getPhoneNumber("Enter Branch Phone Number :");
         if (controller.requestBranchByPhoneNumber(branchPhoneNumber)) {
-            View.displayError("Phone number already exites.");
+            BaseView.displayError("Phone number already exites.");
             return;
         }
         controller.requestNewBranch(branchLocation, branchPhoneNumber);
@@ -41,12 +42,12 @@ public class FromView extends View {
         int branchId = getPositiveInt("Enter Branch ID :");
         Branch branch = controller.requestBranchById(branchId);
         if (branch == null) {
-            View.displayError("Invalid Branch ID.");
+            BaseView.displayError("Invalid Branch ID.");
             return;
         }
         String medicineName = getString("Enter Medicine Name :").trim().toLowerCase(Locale.ROOT);
         if (controller.requestMedicineByBranchIdAndMedicineName(branchId, medicineName) != null) {
-            View.displayError("Medicine is already exites.");
+            BaseView.displayError("Medicine is already exites.");
             return;
         }
         int qty = getPositiveInt("Enter Available Quantity :");
@@ -73,7 +74,7 @@ public class FromView extends View {
         int customerId = getPositiveInt("Enter Customer ID :");
         Customer customer = controller.requestCustomerById(customerId);
         if (customer == null) {
-            displayError("Invalid Customer ID.");
+            displayError("Invalid Customer ID.User not Found.");
             return;
         }
         if (customer.getTransactionList().isEmpty()) {
@@ -88,7 +89,7 @@ public class FromView extends View {
         int customerId = getPositiveInt("Enter Customer ID :");
         Customer customer = controller.requestCustomerById(customerId);
         if (customer == null) {
-            displayError("Invalid Customer ID.");
+            displayError("Invalid Customer ID. User not found.");
             return;
         }
         int branchId = getPositiveInt("Enter Branch ID :");
@@ -104,10 +105,9 @@ public class FromView extends View {
         while (continuePurchase) {
             displayView.displayMedicineName(medicineListByBranchId);
             String medicineName = getString("Enter Product :").trim().toLowerCase(Locale.ROOT);
-            MedicineStock selectedMedicine = Util.verifyMedicineNameInList(medicineListByBranchId, medicineName);
+            MedicineStock selectedMedicine = ValidateUtil.verifyMedicineNameInList(medicineListByBranchId, medicineName);
             if (selectedMedicine == null) {
                 displayError("invalid name.Medicine Number is not fount in the list.");
-                return;
             }
 
             int quantity = getPositiveInt("Enter Quantity :");
@@ -167,11 +167,11 @@ public class FromView extends View {
         Set<String> uniqueMedicineNameList = controller.requestUniqueMedicineName();
         if(uniqueMedicineNameList.isEmpty())
         {
-            displayMessage("no medicine found.");
+            displayMessage("no medicine found.List is empty.");
             return;
         }
         String medicine = getMedicineName("Enter Medicine Index:",uniqueMedicineNameList);
-        String alternate = getMedicineName("Enter Alternate Medicine Name :",uniqueMedicineNameList);
+        String alternate = getMedicineName("Enter Alternate Medicine Index :",uniqueMedicineNameList);
         if (medicine.equals(alternate))
         {
             displayError("medicine and alternate medicine can not be same.");

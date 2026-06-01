@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class DisplayView extends View
+public class DisplayView extends BaseView
 {
     public void disPlayAllBranch(List<Branch> list)
     {

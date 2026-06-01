@@ -4,7 +4,7 @@ import model.MedicineStock;
 
 import java.util.List;
 
-public class Util
+public class ValidateUtil
 {
     public static boolean verifyString(String value)
     {

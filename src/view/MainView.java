@@ -2,7 +2,7 @@ package view;
 
 import java.util.Scanner;
 
-public class MainView extends View
+public class MainView extends BaseView
 {
     Scanner scanner;
     FromView fromView;
@@ -12,7 +12,7 @@ public class MainView extends View
     String city;
     public MainView()
     {
-        scanner = View.getSCANNER();
+        scanner = BaseView.getSCANNER();
         fromView = new FromView();
         displayView = new DisplayView();
     }

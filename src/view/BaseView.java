@@ -1,15 +1,16 @@
 package view;
 
 
-import util.Util;
+import util.ValidateUtil;
 
 import java.util.Scanner;
 
-public class View
+public class BaseView
 {
     static Scanner scanner;
 
-    public static Scanner getSCANNER() {
+    public static Scanner getSCANNER()
+    {
         if(scanner==null)
         {
             scanner = new Scanner(System.in);
@@ -26,7 +27,7 @@ public class View
         while (true) {
             displayMessage(prompt);
             String value = readLine();
-            if(Util.verifyString(value))
+            if(ValidateUtil.verifyString(value))
             {
                 return value;
             }
@@ -41,12 +42,12 @@ public class View
         {
             displayMessage(prompt);
             String value = readLine();
-            if(Util.verifyPhoneNumber(value)) {
+            if(ValidateUtil.verifyPhoneNumber(value)) {
                 return value;
             }
             else
             {
-                displayError("Invalid data. Phone should be 10 digits.");
+                displayError("Invalid data. Phone should be 10 digits and must started with (6 to 9).");
             }
         }
     }
@@ -56,7 +57,7 @@ public class View
             displayMessage(prompt);
             try {
                 int value = Integer.parseInt(readLine());
-                if (Util.verifyPositiveInt(value)) {
+                if (ValidateUtil.verifyPositiveInt(value)) {
                     return value;
                 }
                 displayError("invalid number.Pleases enter a positive number.");
@@ -76,7 +77,7 @@ public class View
             try
             {
                 double value = Double.parseDouble(readLine());
-                if(Util.verifyPositiveDouble(value))
+                if(ValidateUtil.verifyPositiveDouble(value))
                 {
                     return value;
                 }
